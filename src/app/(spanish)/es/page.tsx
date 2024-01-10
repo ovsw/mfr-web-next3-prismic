@@ -6,6 +6,8 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
+import Header from "@/components/Header";
+import { getLocales } from "@/lib/getLocales";
 /**
  * This component renders your homepage.
  *
@@ -39,5 +41,14 @@ export default async function Index() {
   const client = createClient();
   const home = await client.getByUID("page", "home", { lang: "es" });
 
-  return <SliceZone slices={home.data.slices} components={components} />;
+  const locales = await getLocales(home, client);
+
+  return (
+    <>
+      <Header locales={locales} />
+      {/* <pre> {JSON.stringify(locales, null, 3)}</pre> */}
+
+      <SliceZone slices={home.data.slices} components={components} />
+    </>
+  );
 }

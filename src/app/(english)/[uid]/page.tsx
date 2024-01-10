@@ -7,6 +7,9 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
+import Header from "@/components/Header";
+import { getLocales } from "@/lib/getLocales";
+
 type Params = { uid: string };
 
 export const dynamicParams = false;
@@ -42,10 +45,17 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: Params }) {
   const client = createClient();
   const page = await client
-    .getByUID("page", params.uid)
+    .getByUID("page", params.uid, { lang: "en-us" })
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  const locales = await getLocales(page, client);
+
+  return (
+    <>
+      <Header locales={locales} />
+      <SliceZone slices={page.data.slices} components={components} />
+    </>
+  );
 }
 
 export async function generateStaticParams() {
@@ -55,6 +65,7 @@ export async function generateStaticParams() {
    * Query all Documents from the API, except the homepage.
    */
   const pages = await client.getAllByType("page", {
+    lang: "en-us",
     predicates: [prismic.filter.not("my.page.uid", "home")],
   });
 

@@ -6,6 +6,9 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
+import Header from "@/components/Header";
+import { getLocales } from "@/lib/getLocales";
+
 /**
  * This component renders your homepage.
  *
@@ -16,7 +19,7 @@ import { components } from "@/slices";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID("page", "home");
+  const home = await client.getByUID("page", "home", { lang: "en-us" });
 
   return {
     title: prismic.asText(home.data.title),
@@ -37,7 +40,14 @@ export default async function Index() {
    * The client queries content from the Prismic API
    */
   const client = createClient();
-  const home = await client.getByUID("page", "home");
+  const home = await client.getByUID("page", "home", { lang: "en-us" });
 
-  return <SliceZone slices={home.data.slices} components={components} />;
+  const locales = await getLocales(home, client);
+
+  return (
+    <>
+      <Header locales={locales} />
+      <SliceZone slices={home.data.slices} components={components} />
+    </>
+  );
 }

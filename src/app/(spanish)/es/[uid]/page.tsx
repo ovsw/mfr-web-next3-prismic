@@ -7,6 +7,9 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
+import Header from "@/components/Header";
+import { getLocales } from "@/lib/getLocales";
+
 type Params = { uid: string };
 
 export const dynamicParams = false;
@@ -45,7 +48,14 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("page", params.uid, { lang: "es" })
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  const locales = await getLocales(page, client);
+
+  return (
+    <>
+      <Header locales={locales} />
+      <SliceZone slices={page.data.slices} components={components} />
+    </>
+  );
 }
 
 export async function generateStaticParams() {
