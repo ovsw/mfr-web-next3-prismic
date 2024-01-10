@@ -9,6 +9,8 @@ import { components } from "@/slices";
 
 type Params = { uid: string };
 
+export const dynamicParams = false;
+
 /**
  * This page renders a Prismic Document dynamically based on the URL.
  */
