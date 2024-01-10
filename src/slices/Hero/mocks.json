@@ -1,0 +1,147 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "PoshPaws provides luxury pet services, offering top-notch care and pampering for your furry friends. Whether it's our pet hotel or in-home dog care, we create unforgettable experiences for your beloved companions.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"cta1Text": {
+				"__TYPE__": "FieldContent",
+				"value": "win",
+				"type": "Text"
+			},
+			"cta1Link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"cta2Text": {
+				"__TYPE__": "FieldContent",
+				"value": "court",
+				"type": "Text"
+			},
+			"cta2Link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Luxury Pet Services"
+			},
+			"mainImage": {
+				"origin": {
+					"id": "KZv7w34tluA",
+					"url": "https://images.unsplash.com/photo-1505628346881-b72b27e84530?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8ZG9nJTIwc3BhfGVufDB8fHx8MTcwMzkxMTk4NXww&ixlib=rb-4.0.3&q=85",
+					"width": 5304,
+					"height": 7952
+				},
+				"url": "https://images.unsplash.com/photo-1505628346881-b72b27e84530?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8ZG9nJTIwc3BhfGVufDB8fHx8MTcwMzkxMTk4NXww&ixlib=rb-4.0.3&q=85",
+				"width": 5304,
+				"height": 7952,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "long-coated brown dog",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "hero5",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "attached",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolor deserunt irure non ea minim dolore do voluptate eu officia occaecat commodo culpa. Lorem in tempor aliqua ea fugiat anim exercitation ea elit deserunt non occaecat anim amet."
+						}
+					}
+				]
+			},
+			"mainImage": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+					"width": 3424,
+					"height": 3424
+				},
+				"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+				"width": 3424,
+				"height": 3424,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			},
+			"cta1Text": {
+				"__TYPE__": "FieldContent",
+				"value": "edge",
+				"type": "Text"
+			},
+			"cta1Link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"cta2Text": {
+				"__TYPE__": "FieldContent",
+				"value": "keep",
+				"type": "Text"
+			},
+			"cta2Link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

@@ -1,0 +1,178 @@
+{
+  "id": "feature",
+  "type": "SharedSlice",
+  "name": "Feature",
+  "description": "Feature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eyebrow_text": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow Text",
+            "placeholder": ""
+          }
+        },
+        "heading_text": {
+          "type": "Text",
+          "config": {
+            "label": "Heading Text",
+            "placeholder": ""
+          }
+        },
+        "paragraph_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong"
+          }
+        },
+        "main_image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "main_image_ar": {
+          "type": "Select",
+          "config": {
+            "label": "Main Image Aspect Ratio",
+            "placeholder": "",
+            "options": [
+              "Square (1/1)",
+              "Landscape (3:2)",
+              "Portrait (2:3)"
+            ],
+            "default_value": "Square (1/1)"
+          }
+        },
+        "button_1_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button 1 Text",
+            "placeholder": ""
+          }
+        },
+        "button_1_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button 1 Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_2_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button 2 Text",
+            "placeholder": ""
+          }
+        },
+        "button_2_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button 2 Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "feature192",
+      "name": "Feature 192",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eyebrow_text": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow Text",
+            "placeholder": ""
+          }
+        },
+        "heading_text": {
+          "type": "Text",
+          "config": {
+            "label": "Heading Text",
+            "placeholder": ""
+          }
+        },
+        "paragraph_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong"
+          }
+        },
+        "main_image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "main_image_ar": {
+          "type": "Select",
+          "config": {
+            "label": "Main Image Aspect Ratio",
+            "placeholder": "",
+            "options": [
+              "Square (1/1)",
+              "Landscape (3:2)",
+              "Portrait (2:3)"
+            ],
+            "default_value": "Square (1/1)"
+          }
+        },
+        "button_1_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button 1 Text",
+            "placeholder": ""
+          }
+        },
+        "button_1_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button 1 Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_2_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button 2 Text",
+            "placeholder": ""
+          }
+        },
+        "button_2_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button 2 Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
