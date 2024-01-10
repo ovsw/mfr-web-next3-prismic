@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "devlink": "webflow devlink sync"
   },
   "dependencies": {
     "@prismicio/client": "^7.3.1",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.31",
+    "@webflow/webflow-cli": "^1.6.5",
     "concurrently": "^8.2.2",
     "eslint-config-next": "^14.0.1",
     "slice-machine-ui": "^1.22.1"
