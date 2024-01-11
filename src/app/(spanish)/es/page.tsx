@@ -8,6 +8,7 @@ import { components } from "@/slices";
 
 import Header from "@/components/Header";
 import { getLocales } from "@/lib/getLocales";
+import { Hero1 } from "@/devlink";
 /**
  * This component renders your homepage.
  *
@@ -47,7 +48,7 @@ export default async function Index() {
     <>
       <Header locales={locales} />
       {/* <pre> {JSON.stringify(locales, null, 3)}</pre> */}
-
+      <Hero1 />
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );
