@@ -15,14 +15,6 @@ export default function SharedRootLayout({
 }) {
   return (
     <html lang={lang}>
-      <Head>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="any"
-          href="https://prismic.io/favicon.ico"
-        />
-      </Head>
       <body>
         <DevLinkProvider>{children}</DevLinkProvider>
         <PrismicPreview repositoryName={repositoryName} />
