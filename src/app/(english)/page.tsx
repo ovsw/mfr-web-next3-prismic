@@ -20,7 +20,9 @@ import { Hero1 } from "@/devlink";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID("page", "home", { lang: "en-us" });
+
+  const home = await client.getByUID("page", "home");
+  const settings = await client.getSingle("settings", { lang: "en-us" });
 
   return {
     title: prismic.asText(home.data.title),

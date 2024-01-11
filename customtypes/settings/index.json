@@ -9,25 +9,22 @@
       "site_title": {
         "type": "Text",
         "config": {
-          "label": "Site Title",
+          "label": "Fallback Site Title",
           "placeholder": ""
         }
       },
       "meta_description": {
         "type": "Text",
         "config": {
-          "label": "Meta Description",
+          "label": "Fallback Meta Description",
           "placeholder": ""
         }
       },
       "og_image": {
         "type": "Image",
         "config": {
-          "label": "OG Image",
-          "constraint": {
-            "width": 1200,
-            "height": 630
-          },
+          "label": "Fallback OG Image",
+          "constraint": {},
           "thumbnails": []
         }
       }
