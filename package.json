@@ -27,10 +27,10 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.31",
+    "@slicemachine/adapter-next": "^0.3.32",
     "@webflow/webflow-cli": "^1.6.5",
     "concurrently": "^8.2.2",
     "eslint-config-next": "^14.0.1",
-    "slice-machine-ui": "^1.22.1"
+    "slice-machine-ui": "^1.22.2"
   }
 }
