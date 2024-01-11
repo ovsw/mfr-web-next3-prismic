@@ -2,7 +2,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 
 // devlink stuff
-import "../../../devlink/global.css";
+import "@/devlink/global.css";
 import { DevLinkProvider } from "@/devlink";
 
 export default function RootLayout({
