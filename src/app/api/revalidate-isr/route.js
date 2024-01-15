@@ -16,7 +16,7 @@ import config from "../../../../slicemachine.config.json";
  * The Prismic webhook must send the correct secret.
  */
 // @ts-ignore
-export default async function handler(req, res) {
+async function handler(req, res) {
   if (req.body?.type === "api-update" && req.body.documents.length > 0) {
     // Check for secret to confirm this is a valid request
     if (req.body.secret !== process.env.PRISMIC_WEBHOOK_SECRET) {
@@ -53,3 +53,5 @@ export default async function handler(req, res) {
   // If the request's body is unknown, tell the requester
   return res.status(400).json({ message: "Invalid body" });
 }
+
+export { handler as GET, handler as POST };
