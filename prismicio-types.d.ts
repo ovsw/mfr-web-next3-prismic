@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | ContentSlice
   | FeatureSlice
   | HeroHeadingSlice
   | RichTextSlice;
@@ -134,6 +135,71 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = PageDocument | SettingsDocument;
+
+/**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSliceDefaultPrimary {
+  /**
+   * Heading field in *Content → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Rich Text field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Main Image field in *Content → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Content Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Content*
+ */
+type ContentSliceVariation = ContentSliceDefault;
+
+/**
+ * Content Shared Slice
+ *
+ * - **API ID**: `content`
+ * - **Description**: Content
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSlice = prismic.SharedSlice<
+  "content",
+  ContentSliceVariation
+>;
 
 /**
  * Primary content in *Feature → Primary*
@@ -632,6 +698,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      ContentSlice,
+      ContentSliceDefaultPrimary,
+      ContentSliceVariation,
+      ContentSliceDefault,
       FeatureSlice,
       FeatureSliceDefaultPrimary,
       FeatureSliceFeature192Primary,

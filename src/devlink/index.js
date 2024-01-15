@@ -5,6 +5,7 @@ export * from "./devlinkContext";
 export * from "./interactions";
 export * from "./utils";
 export * from "./devlink";
+export * from "./Content1";
 export * from "./Feature1";
 export * from "./Feature192";
 export * from "./GlobalStyles";
