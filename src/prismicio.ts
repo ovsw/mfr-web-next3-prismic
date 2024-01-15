@@ -11,7 +11,7 @@ export const repositoryName =
 /**
  * The project's Prismic Route Resolvers. This list determines a Prismic document's URL.
  */
-const routes: prismic.ClientConfig["routes"] = [
+export const routes: prismic.ClientConfig["routes"] = [
   {
     type: "page",
     path: "/:lang?/:uid",
@@ -32,10 +32,10 @@ const routes: prismic.ClientConfig["routes"] = [
 export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
-    fetchOptions:
-      process.env.NODE_ENV === "production"
-        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
-        : { next: { revalidate: 5 } },
+    // fetchOptions:
+    //   process.env.NODE_ENV === "production"
+    //     ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+    //     : { next: { revalidate: 5 } },
     ...config,
   });
 
