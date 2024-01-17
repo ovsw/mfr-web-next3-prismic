@@ -17,7 +17,7 @@ export default async function SharedRootLayout({
   lang: string;
 }) {
   return (
-    <html lang={lang} className="background-red">
+    <html lang={lang}>
       <body>
         <Header />
         <DevLinkProvider>{children}</DevLinkProvider>
