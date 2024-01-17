@@ -16,7 +16,7 @@ export const POST = async (request: NextRequest) => {
   const body = await request.json();
   // console.log("SECRET:", process.env.PRISMIC_WEBHOOK_SECRET);
   // Do something
-  console.log("CHECK", "START");
+  // console.log("CHECK", "START");
 
   // check if this is a Prismic webhook request via secret
   if (body.type === "api-update" && body.documents.length > 0) {
@@ -52,15 +52,15 @@ export const POST = async (request: NextRequest) => {
     // console.log("pagePaths", pagePaths);
 
     // Revalidate the pagePaths for those documents
-    console.log("CHECK", "B4 AWAIT PROMISE.ALL");
+    // console.log("CHECK", "B4 AWAIT PROMISE.ALL");
     await Promise.all(
       pagePaths.map(async (pagePath) => {
-        console.log("CHECK", "IN PROMISE.ALL");
+        // console.log("CHECK", "IN PROMISE.ALL");
         if (pagePath) {
-          console.log(
-            "CHECK",
-            "IN PROMISE.ALL, PAGEPATH PRESENT, REVALIDATING"
-          );
+          // console.log(
+          //   "CHECK",
+          //   "IN PROMISE.ALL, PAGEPATH PRESENT, REVALIDATING"
+          // );
           revalidatePath(pagePath);
         }
       })
@@ -73,9 +73,9 @@ export const POST = async (request: NextRequest) => {
       //   message: "Missing a path to revalidate",
       // });
 
-      console.log("CHECK", "AFTER ALL PROMISES COMPLETED", values);
+      // console.log("CHECK", "AFTER ALL PROMISES COMPLETED", values);
       // @ts-ignore
-      console.log("CHECK", "PROMISE.BODY", values.body);
+      // console.log("CHECK", "PROMISE.BODY", values.body);
       // If all paths were revalidated, tell the requester
       return NextResponse.json(
         { revalidated: true, now: Date.now() },
@@ -83,14 +83,14 @@ export const POST = async (request: NextRequest) => {
       );
     });
 
-    console.log("CHECK", "FINAL 200 RETURN");
+    // console.log("CHECK", "FINAL 200 RETURN");
     // If all paths were revalidated, tell the requester
     return NextResponse.json(
       { revalidated: true, now: Date.now() },
       { status: 200 }
     );
   }
-  // // If the request's body is unknown, tell the requester
-  console.log("CHECK", "FINAL ERROR RETURN");
-  return NextResponse.json({ message: "Invalid body" }, { status: 401 });
+  // // // If the request's body is unknown, tell the requester
+  // console.log("CHECK", "FINAL ERROR RETURN");
+  // return NextResponse.json({ message: "Invalid body" }, { status: 401 });
 };
