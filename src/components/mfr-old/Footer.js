@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import FooterLogo from "../../../public/images/mariannas-fundraisers_2022_alt_white_wordmark.png";
@@ -127,16 +127,20 @@ export default function SiteFooter() {
                 className=""
                 src={FooterLogo}
                 alt="Marianna's Fundraisers"
-                layout="intrinsic"
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
             <div className="h-32 w-32 relative">
               <Image
                 className=""
                 src={DelGrossoBadge}
                 alt=""
-                layout="intrinsic"
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
           </div>
           <p className=" col-start-3 flex items-center">

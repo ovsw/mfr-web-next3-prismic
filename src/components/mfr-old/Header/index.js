@@ -23,7 +23,7 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import DesktopDropdown from "./nav/deskop-dropdown";
 import MobileNav from "./nav/mobile";
@@ -56,7 +56,10 @@ const Header = () => {
                     src={DesktopLogo}
                     alt="Marianna's Fundraisers Logo"
                     fit="fit"
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
 
                 </Link>
               </div>
