@@ -1,10 +1,11 @@
-import { Fragment } from "react"
-import { Popover, Transition } from "@headlessui/react"
-import { CalendarIcon, PhoneIcon, XIcon } from "@heroicons/react/outline"
-import Link from "next/link"
-import Image from "next/image"
+"use client";
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { CalendarIcon, PhoneIcon, XIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import Image from "next/image";
 
-import DesktopLogo from "../../../public/images/mariannas-fundraisers_2022_alt_wordmark.png"
+import DesktopLogo from "../../../../../public/images/mariannas-fundraisers_2022_alt_wordmark.png";
 
 const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
   return (
@@ -28,15 +29,14 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
               {/* MOBILE MENU TOP */}
               <div className="flex">
                 <Link href="/" className="w-24 sm:w-40 pt-1 mr-auto md:mx-auto">
-
                   <Image
                     src={DesktopLogo}
                     alt="Marianna's Fundraisers Logo"
                     style={{
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
-
+                      height: "auto",
+                    }}
+                  />
                 </Link>
 
                 <div className="-mr-2 relative z-50">
@@ -52,43 +52,41 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
               <div className="mt-6 sm:mt-10 md:mt-5 md:max-w-lg md:mx-auto md:px-5">
                 <nav className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
                   <div className="grid grid-cols-1 gap-4">
-                    {mobileMainMenu.slice(0, 2).map(item => (
-                      (<Link
+                    {mobileMainMenu.slice(0, 2).map((item) => (
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="-m-3 p-3 flex items-center rounded-lg hover:bg-stone-50"
                         onClick={async () => {
-                          close()
-                        }}>
-
+                          close();
+                        }}
+                      >
                         <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-red-600 to-accent text-white">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
                         <div className="ml-4 text-base font-medium text-stone-900">
                           {item.name}
                         </div>
-
-                      </Link>)
+                      </Link>
                     ))}
                   </div>
                   <div className="grid grid-cols-1 gap-4">
-                    {mobileMainMenu.slice(2).map(item => (
-                      (<Link
+                    {mobileMainMenu.slice(2).map((item) => (
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="-m-3 p-3 flex items-center rounded-lg hover:bg-stone-50"
                         onClick={async () => {
-                          close()
-                        }}>
-
+                          close();
+                        }}
+                      >
                         <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-red-600 to-accent text-white">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
                         <div className="ml-4 text-base font-medium text-stone-900">
                           {item.name}
                         </div>
-
-                      </Link>)
+                      </Link>
                     ))}
                   </div>
                 </nav>
@@ -103,17 +101,16 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
               <div className="grid grid-cols-2 gap-4">
                 {mobileSecondaryMenu.map((item, i) => {
                   return (
-                    (<Link
+                    <Link
                       key={i}
                       href={item.href}
                       className="text-base font-medium text-stone-900 hover:text-stone-700 leading-5"
                       onClick={async () => {
-                        close()
-                      }}>
-
+                        close();
+                      }}
+                    >
                       {item.name}
-
-                    </Link>)
+                    </Link>
                   );
                 })}
               </div>
@@ -125,40 +122,39 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
                   href="/schedule-a-free-tasting"
                   className="btn btn-accent btn-small"
                   onClick={async () => {
-                    close()
-                  }}>
-
+                    close();
+                  }}
+                >
                   <span className="mr-2">
                     <CalendarIcon className="h-5 w-5" aria-hidden="true" />
-                  </span>Book Free Tasting
+                  </span>
+                  Book Free Tasting
                 </Link>
                 {/* Existing customer? */}
                 <Link
                   href="/submit-your-order"
                   className="btn btn-primary btn-small"
                   onClick={async () => {
-                    close()
-                  }}>
-
+                    close();
+                  }}
+                >
                   <span className="mr-2">
                     <PhoneIcon className="h-5 w-5" aria-hidden="true" />
                   </span>{" "}
                   <span className="">Submit Order</span>
-
                 </Link>
               </div>
               <Link
                 href="/get-assistance"
                 className=" flex items-center justify-center md:justify-start mt-5 border-red-600  underline text-lg"
                 onClick={async () => {
-                  close()
-                }}>
-
+                  close();
+                }}
+              >
                 <span className="mr-2">
                   <PhoneIcon className="h-5 w-5" aria-hidden="true" />
                 </span>{" "}
                 <span className="">Get Support / Contact</span>
-
               </Link>
               {/* END EXTRA ITEMS BUTTONS  */}
             </div>
@@ -167,5 +163,5 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
       </Popover.Panel>
     </Transition>
   );
-}
-export default MobileNav
+};
+export default MobileNav;

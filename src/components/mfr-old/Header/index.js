@@ -1,3 +1,5 @@
+"use client";
+
 import { Popover } from "@headlessui/react";
 import {
   BookOpenIcon,
@@ -28,7 +30,7 @@ import Image from "next/image";
 import DesktopDropdown from "./nav/deskop-dropdown";
 import MobileNav from "./nav/mobile";
 
-import DesktopLogo from "../../public/images/mariannas-fundraisers_2022_alt_wordmark.png";
+import DesktopLogo from "../../../../public/images/mariannas-fundraisers_2022_alt_wordmark.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -49,7 +51,6 @@ const Header = () => {
               {/* LOGO */}
               <div className="flex justify-start lg:w-36">
                 <Link href="/" className="w-40 pt-2 md:pt-0 md:h-10 relative">
-
                   <span className="sr-only">Marianna&apos;s Fundraisers</span>
                   <Image
                     className=""
@@ -58,9 +59,9 @@ const Header = () => {
                     fit="fit"
                     style={{
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
-
+                      height: "auto",
+                    }}
+                  />
                 </Link>
               </div>
               {/* LOGO END */}
@@ -76,7 +77,10 @@ const Header = () => {
                   description="We offer 14” famous hoagies and 12” delicious pizzas for your fundraising needs. You'll love how easy they are to sell and your customers will love the variety."
                 />
 
-                <Link href="/products" className="main-menu-item text-stone-800">
+                <Link
+                  href="/products"
+                  className="main-menu-item text-stone-800"
+                >
                   Menu
                 </Link>
 
@@ -91,7 +95,10 @@ const Header = () => {
                   description="Tools to help you throughout the fundraising process."
                 />
 
-                <Link href="/contact-us" className="main-menu-item text-stone-800">
+                <Link
+                  href="/contact-us"
+                  className="main-menu-item text-stone-800"
+                >
                   Contact Us
                 </Link>
               </Popover.Group>
@@ -104,10 +111,9 @@ const Header = () => {
             flex items-center justify-center 
             btn btn-outlined-accent
             btn-small
-            ">
-                  
-                    Book Free Tasting
-                  
+            "
+                >
+                  Book Free Tasting
                 </Link>
                 <Link
                   href="/submit-your-order"
@@ -116,10 +122,9 @@ const Header = () => {
             flex items-center justify-center 
             btn btn-outlined-primary
             btn-small
-            ">
-                  
-                    Submit Order
-                  
+            "
+                >
+                  Submit Order
                 </Link>
               </div>
 
