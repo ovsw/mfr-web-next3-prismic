@@ -19,9 +19,6 @@ export default async function SharedRootLayout({
   return (
     <html lang={lang} className="background-red">
       <body>
-        <h1 className="text-3xl font-bold underline text-red-500">
-          Hello, Next.js!
-        </h1>
         <Header />
         <DevLinkProvider>{children}</DevLinkProvider>
         <Footer />
