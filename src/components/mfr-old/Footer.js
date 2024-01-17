@@ -166,10 +166,10 @@ export default function SiteFooter() {
 
             <div className="flex space-x-6 items-center">
               <p>
-                <Link href="/submit-your-order">
-                  <a className="btn btn-small btn-inverted-accent">
+                <Link href="/submit-your-order" className="btn btn-small btn-inverted-accent">
+                  
                     Submit Order
-                  </a>
+                  
                 </Link>
               </p>
               {navigation.social.map((item) => (
@@ -193,10 +193,10 @@ export default function SiteFooter() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.fundraisers.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href}>
-                        <a href={item.href} className="footer-col-list-item">
-                          {item.name}
-                        </a>
+                      <Link href={item.href} className="footer-col-list-item">
+
+                        {item.name}
+
                       </Link>
                     </li>
                   ))}
@@ -207,8 +207,8 @@ export default function SiteFooter() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.aboutUs.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href}>
-                        <a className="footer-col-list-item">{item.name}</a>
+                      <Link href={item.href} className="footer-col-list-item">
+                        {item.name}
                       </Link>
                     </li>
                   ))}
@@ -221,8 +221,8 @@ export default function SiteFooter() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href}>
-                        <a className="footer-col-list-item">{item.name}</a>
+                      <Link href={item.href} className="footer-col-list-item">
+                        {item.name}
                       </Link>
                     </li>
                   ))}

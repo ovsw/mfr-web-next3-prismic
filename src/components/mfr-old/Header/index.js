@@ -48,16 +48,16 @@ const Header = () => {
             <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-4 md:py-6 sm:px-6  md:space-x-10  lg:px-8">
               {/* LOGO */}
               <div className="flex justify-start lg:w-36">
-                <Link href="/">
-                  <a className="w-40 pt-2 md:pt-0 md:h-10 relative">
-                    <span className="sr-only">Marianna&apos;s Fundraisers</span>
-                    <Image
-                      className=""
-                      src={DesktopLogo}
-                      alt="Marianna's Fundraisers Logo"
-                      fit="fit"
-                    />
-                  </a>
+                <Link href="/" className="w-40 pt-2 md:pt-0 md:h-10 relative">
+
+                  <span className="sr-only">Marianna&apos;s Fundraisers</span>
+                  <Image
+                    className=""
+                    src={DesktopLogo}
+                    alt="Marianna's Fundraisers Logo"
+                    fit="fit"
+                  />
+
                 </Link>
               </div>
               {/* LOGO END */}
@@ -73,8 +73,8 @@ const Header = () => {
                   description="We offer 14” famous hoagies and 12” delicious pizzas for your fundraising needs. You'll love how easy they are to sell and your customers will love the variety."
                 />
 
-                <Link href="/products">
-                  <a className="main-menu-item text-stone-800">Menu</a>
+                <Link href="/products" className="main-menu-item text-stone-800">
+                  Menu
                 </Link>
 
                 <DesktopDropdown
@@ -88,35 +88,35 @@ const Header = () => {
                   description="Tools to help you throughout the fundraising process."
                 />
 
-                <Link href="/contact-us">
-                  <a className="main-menu-item text-stone-800">Contact Us</a>
+                <Link href="/contact-us" className="main-menu-item text-stone-800">
+                  Contact Us
                 </Link>
               </Popover.Group>
 
               <div className="hidden md:flex  lg:flex-1 justify-end space-x-2 ">
-                <Link href="/schedule-a-free-tasting">
-                  <a
-                    className="
-              whitespace-nowrap 
-              flex items-center justify-center 
-              btn btn-outlined-accent
-              btn-small
-              "
-                  >
+                <Link
+                  href="/schedule-a-free-tasting"
+                  className="
+            whitespace-nowrap 
+            flex items-center justify-center 
+            btn btn-outlined-accent
+            btn-small
+            ">
+                  
                     Book Free Tasting
-                  </a>
+                  
                 </Link>
-                <Link href="/submit-your-order">
-                  <a
-                    className="
-              whitespace-nowrap 
-              flex items-center justify-center 
-              btn btn-outlined-primary
-              btn-small
-              "
-                  >
+                <Link
+                  href="/submit-your-order"
+                  className="
+            whitespace-nowrap 
+            flex items-center justify-center 
+            btn btn-outlined-primary
+            btn-small
+            ">
+                  
                     Submit Order
-                  </a>
+                  
                 </Link>
               </div>
 

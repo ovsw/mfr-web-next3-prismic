@@ -27,13 +27,13 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
             <div className="pt-4 pb-6 px-5">
               {/* MOBILE MENU TOP */}
               <div className="flex">
-                <Link href="/">
-                  <a className="w-24 sm:w-40 pt-1 mr-auto md:mx-auto">
-                    <Image
-                      src={DesktopLogo}
-                      alt="Marianna's Fundraisers Logo"
-                    />
-                  </a>
+                <Link href="/" className="w-24 sm:w-40 pt-1 mr-auto md:mx-auto">
+
+                  <Image
+                    src={DesktopLogo}
+                    alt="Marianna's Fundraisers Logo"
+                  />
+
                 </Link>
 
                 <div className="-mr-2 relative z-50">
@@ -50,40 +50,42 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
                 <nav className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
                   <div className="grid grid-cols-1 gap-4">
                     {mobileMainMenu.slice(0, 2).map(item => (
-                      <Link key={item.name} href={item.href}>
-                        <a
-                          className="-m-3 p-3 flex items-center rounded-lg hover:bg-stone-50"
-                          onClick={async () => {
-                            close()
-                          }}
-                        >
-                          <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-red-600 to-accent text-white">
-                            <item.icon className="h-6 w-6" aria-hidden="true" />
-                          </div>
-                          <div className="ml-4 text-base font-medium text-stone-900">
-                            {item.name}
-                          </div>
-                        </a>
-                      </Link>
+                      (<Link
+                        key={item.name}
+                        href={item.href}
+                        className="-m-3 p-3 flex items-center rounded-lg hover:bg-stone-50"
+                        onClick={async () => {
+                          close()
+                        }}>
+
+                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-red-600 to-accent text-white">
+                          <item.icon className="h-6 w-6" aria-hidden="true" />
+                        </div>
+                        <div className="ml-4 text-base font-medium text-stone-900">
+                          {item.name}
+                        </div>
+
+                      </Link>)
                     ))}
                   </div>
                   <div className="grid grid-cols-1 gap-4">
                     {mobileMainMenu.slice(2).map(item => (
-                      <Link key={item.name} href={item.href}>
-                        <a
-                          className="-m-3 p-3 flex items-center rounded-lg hover:bg-stone-50"
-                          onClick={async () => {
-                            close()
-                          }}
-                        >
-                          <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-red-600 to-accent text-white">
-                            <item.icon className="h-6 w-6" aria-hidden="true" />
-                          </div>
-                          <div className="ml-4 text-base font-medium text-stone-900">
-                            {item.name}
-                          </div>
-                        </a>
-                      </Link>
+                      (<Link
+                        key={item.name}
+                        href={item.href}
+                        className="-m-3 p-3 flex items-center rounded-lg hover:bg-stone-50"
+                        onClick={async () => {
+                          close()
+                        }}>
+
+                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-red-600 to-accent text-white">
+                          <item.icon className="h-6 w-6" aria-hidden="true" />
+                        </div>
+                        <div className="ml-4 text-base font-medium text-stone-900">
+                          {item.name}
+                        </div>
+
+                      </Link>)
                     ))}
                   </div>
                 </nav>
@@ -98,63 +100,62 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
               <div className="grid grid-cols-2 gap-4">
                 {mobileSecondaryMenu.map((item, i) => {
                   return (
-                    <Link key={i} href={item.href}>
-                      <a
-                        className="text-base font-medium text-stone-900 hover:text-stone-700 leading-5"
-                        onClick={async () => {
-                          close()
-                        }}
-                      >
-                        {item.name}
-                      </a>
-                    </Link>
-                  )
+                    (<Link
+                      key={i}
+                      href={item.href}
+                      className="text-base font-medium text-stone-900 hover:text-stone-700 leading-5"
+                      onClick={async () => {
+                        close()
+                      }}>
+
+                      {item.name}
+
+                    </Link>)
+                  );
                 })}
               </div>
               {/* END EXTRA ITEMS MAIN */}
 
               {/* EXTRA ITEMS BUTTONS  */}
               <div className="mt-6 space-y-4 md:space-y-0 md:space-x-4">
-                <Link href="/schedule-a-free-tasting">
-                  <a
-                    className="btn btn-accent btn-small"
-                    onClick={async () => {
-                      close()
-                    }}
-                  >
-                    <span className="mr-2">
-                      <CalendarIcon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    Book Free Tasting
-                  </a>
-                </Link>
-                {/* Existing customer? */}
-                <Link href="/submit-your-order">
-                  <a
-                    className="btn btn-primary btn-small"
-                    onClick={async () => {
-                      close()
-                    }}
-                  >
-                    <span className="mr-2">
-                      <PhoneIcon className="h-5 w-5" aria-hidden="true" />
-                    </span>{" "}
-                    <span className="">Submit Order</span>
-                  </a>
-                </Link>
-              </div>
-              <Link href="/get-assistance">
-                <a
-                  className=" flex items-center justify-center md:justify-start mt-5 border-red-600  underline text-lg"
+                <Link
+                  href="/schedule-a-free-tasting"
+                  className="btn btn-accent btn-small"
                   onClick={async () => {
                     close()
-                  }}
-                >
+                  }}>
+
+                  <span className="mr-2">
+                    <CalendarIcon className="h-5 w-5" aria-hidden="true" />
+                  </span>Book Free Tasting
+                </Link>
+                {/* Existing customer? */}
+                <Link
+                  href="/submit-your-order"
+                  className="btn btn-primary btn-small"
+                  onClick={async () => {
+                    close()
+                  }}>
+
                   <span className="mr-2">
                     <PhoneIcon className="h-5 w-5" aria-hidden="true" />
                   </span>{" "}
-                  <span className="">Get Support / Contact</span>
-                </a>
+                  <span className="">Submit Order</span>
+
+                </Link>
+              </div>
+              <Link
+                href="/get-assistance"
+                className=" flex items-center justify-center md:justify-start mt-5 border-red-600  underline text-lg"
+                onClick={async () => {
+                  close()
+                }}>
+
+                <span className="mr-2">
+                  <PhoneIcon className="h-5 w-5" aria-hidden="true" />
+                </span>{" "}
+                <span className="">Get Support / Contact</span>
+
               </Link>
               {/* END EXTRA ITEMS BUTTONS  */}
             </div>
@@ -162,6 +163,6 @@ const MobileNav = ({ mobileMainMenu, mobileSecondaryMenu }) => {
         )}
       </Popover.Panel>
     </Transition>
-  )
+  );
 }
 export default MobileNav
