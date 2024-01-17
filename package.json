@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.32",
+    "@tailwindcss/typography": "^0.5.10",
     "@webflow/webflow-cli": "^1.6.5",
     "autoprefixer": "^10.4.16",
     "concurrently": "^8.2.2",
