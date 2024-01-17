@@ -126,21 +126,23 @@ export default function SiteFooter() {
               <Image
                 className=""
                 src={FooterLogo}
-                alt="Marianna's Fundraisers"
+                alt="Marianna's Fundraisers Logo"
                 style={{
                   maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  height: "auto",
+                }}
+              />
             </div>
             <div className="h-32 w-32 relative">
               <Image
-                className=""
+                className="DelGrosso"
                 src={DelGrossoBadge}
                 alt=""
                 style={{
                   maxWidth: "100%",
-                  height: "auto"
-                }} />
+                  height: "auto",
+                }}
+              />
             </div>
           </div>
           <p className=" col-start-3 flex items-center">
@@ -170,10 +172,11 @@ export default function SiteFooter() {
 
             <div className="flex space-x-6 items-center">
               <p>
-                <Link href="/submit-your-order" className="btn btn-small btn-inverted-accent">
-                  
-                    Submit Order
-                  
+                <Link
+                  href="/submit-your-order"
+                  className="btn btn-small btn-inverted-accent"
+                >
+                  Submit Order
                 </Link>
               </p>
               {navigation.social.map((item) => (
@@ -198,9 +201,7 @@ export default function SiteFooter() {
                   {navigation.fundraisers.map((item) => (
                     <li key={item.name}>
                       <Link href={item.href} className="footer-col-list-item">
-
                         {item.name}
-
                       </Link>
                     </li>
                   ))}
