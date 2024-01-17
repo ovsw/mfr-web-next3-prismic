@@ -5,7 +5,6 @@ import { repositoryName } from "@/prismicio";
 import "@/app/tailwind.css";
 import "@/devlink/global.css";
 import { DevLinkProvider } from "@/devlink";
-import Head from "next/head";
 
 export default async function SharedRootLayout({
   children,
