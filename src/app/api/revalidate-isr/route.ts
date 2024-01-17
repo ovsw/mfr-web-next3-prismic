@@ -1,57 +1,96 @@
-// pages/api/revalidate.js
-
+import { NextResponse, NextRequest } from "next/server";
+import { routes, repositoryName } from "@/prismicio";
+import config from "../../../../slicemachine.config.json";
 import * as prismic from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
-import { createClient, routes, repositoryName } from "@/prismicio";
-import config from "../../../../slicemachine.config.json";
+import { revalidatePath } from "next/cache";
 
-// Import your app's Link Resolver (if your app uses one)
-// import { linkResolver } from "../prismicio";
+export const GET = async () => {
+  return NextResponse.json(
+    { message: "Hello, Next.js Version 13!" },
+    { status: 200 }
+  );
+};
 
-/**
- * This API endpoint will be called by a Prismic webhook. The webhook
- * will send an object containing a list of added, updated, or deleted
- * documents. Pages for those documents will be rebuilt.
- *
- * The Prismic webhook must send the correct secret.
- */
-// @ts-ignore
-async function handler(req, res) {
-  if (req.body?.type === "api-update" && req.body.documents.length > 0) {
+export const POST = async (request: NextRequest) => {
+  const body = await request.json();
+  // console.log("SECRET:", process.env.PRISMIC_WEBHOOK_SECRET);
+  // Do something
+  console.log("CHECK", "START");
+
+  // check if this is a Prismic webhook request via secret
+  if (body.type === "api-update" && body.documents.length > 0) {
     // Check for secret to confirm this is a valid request
-    if (req.body.secret !== process.env.PRISMIC_WEBHOOK_SECRET) {
-      return res
-        .status(401)
-        .json({ message: "Invalid Prismic ISR Webhook token" });
+    if (body.secret !== process.env.PRISMIC_WEBHOOK_SECRET) {
+      return NextResponse.json(
+        { message: "Invalid Prismic ISR Webhook token" },
+        { status: 401 }
+      );
     }
 
-    // If you have a `createClient()` function defined elsewhere in
-    // your app, use that instead
+    // create prismic client:
+    // (1) from scratch:
     // const client = createClient();
-    //  this is the default createClient function, customized to use the slicemachine.config.json
+
+    // or (2): if you have a `createClient()` function defined
+    // elsewhere in your app, use that instead
+    //  For example, this is the default createClient function, customized to use the slicemachine.config.json
+    // @param repositoryName, routes = imported from prismic config (prismicio.ts in root of project)
+    // routes are very important, to let the client figure out the paths for your pages - we need to know the path for each document so we can revalidate it
+    // if not using routes, or have more complicated links to resolve use linkResolver instead (see below)
     const client = prismic.createClient(repositoryName, { routes, ...config });
 
     // Get a list of URLs for any new, updated, or deleted documents
-    const documents = await client.getAllByIDs(req.body.documents);
+    const documents = await client.getAllByIDs(body.documents);
 
-    //  get list of urls for any new, updated, or deleted documents,
-    // const urls = documents.map((doc) => prismicH.asLink(doc, linkResolver)); // with optioonal link resolver...
-    const urls = documents.map((doc) => prismicH.asLink(doc)); // ...or without link resolver (if we already pass a "routes" object to the client)
+    //  get list of page paths for any new, updated, or deleted documents:
+    // (1): with optioonal link resolver, if we don't pass a "routes" object to the client above (option 1 when creating client)
+    // const pagePaths = documents.map((doc) => prismicH.asLink(doc, linkResolver));
+    // or (2): without link resolver (if we already pass a "routes" object to the client)
+    const pagePaths = documents.map((doc) => prismicH.asLink(doc));
 
-    try {
-      // Revalidate the URLs for those documents
-      await Promise.all(urls.map(async (url) => await res.revalidate(url)));
+    // console.log("pagePaths", pagePaths);
 
-      return res.json({ revalidated: true });
-    } catch (err) {
-      // If there was an error, Next.js will continue to show
-      // the last successfully generated page
-      return res.status(500).send("Error revalidating");
-    }
+    // Revalidate the pagePaths for those documents
+    console.log("CHECK", "B4 AWAIT PROMISE.ALL");
+    await Promise.all(
+      pagePaths.map(async (pagePath) => {
+        console.log("CHECK", "IN PROMISE.ALL");
+        if (pagePath) {
+          console.log(
+            "CHECK",
+            "IN PROMISE.ALL, PAGEPATH PRESENT, REVALIDATING"
+          );
+          revalidatePath(pagePath);
+        }
+      })
+    ).then((values) => {
+      // console.log("CHECK", "IN PROMISE.ALL, B4 ERROR RETURN");
+      // // If there was no path to revalidate, tell the requester
+      // return NextResponse.json({
+      //   revalidated: false,
+      //   now: Date.now(),
+      //   message: "Missing a path to revalidate",
+      // });
+
+      console.log("CHECK", "AFTER ALL PROMISES COMPLETED", values);
+      // @ts-ignore
+      console.log("CHECK", "PROMISE.BODY", values.body);
+      // If all paths were revalidated, tell the requester
+      return NextResponse.json(
+        { revalidated: true, now: Date.now() },
+        { status: 200 }
+      );
+    });
+
+    console.log("CHECK", "FINAL 200 RETURN");
+    // If all paths were revalidated, tell the requester
+    return NextResponse.json(
+      { revalidated: true, now: Date.now() },
+      { status: 200 }
+    );
   }
-
-  // If the request's body is unknown, tell the requester
-  return res.status(400).json({ message: "Invalid body" });
-}
-
-export { handler as GET, handler as POST };
+  // // If the request's body is unknown, tell the requester
+  console.log("CHECK", "FINAL ERROR RETURN");
+  return NextResponse.json({ message: "Invalid body" }, { status: 401 });
+};
