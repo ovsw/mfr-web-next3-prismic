@@ -23,7 +23,7 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/outline";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import DesktopDropdown from "./nav/deskop-dropdown";
 import MobileNav from "./nav/mobile";

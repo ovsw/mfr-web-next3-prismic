@@ -2,7 +2,7 @@ import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import { CalendarIcon, PhoneIcon, XIcon } from "@heroicons/react/outline"
 import Link from "next/link"
-import Image from "next/image"
+import Image from "next/legacy/image"
 
 import DesktopLogo from "../../../public/images/mariannas-fundraisers_2022_alt_wordmark.png"
 

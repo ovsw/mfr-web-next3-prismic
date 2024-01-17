@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 
 import FooterLogo from "../../../public/images/mariannas-fundraisers_2022_alt_white_wordmark.png";
