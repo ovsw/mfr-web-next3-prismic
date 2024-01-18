@@ -52,8 +52,8 @@
   }
   :focus-visible {
     @apply before:absolute
-    before:-inset-2
-    before:shadow-focus before:rounded-xl outline-none;
+    before:-inset-3
+     before:outline before:shadow-red-500 before:rounded-lg;
   }
 
   :target {
@@ -70,7 +70,7 @@
     px-4 pt-4 pb-3 sm:px-6 sm:pt-[20px] sm:pb-[17px]
     leading-tight
     border border-transparent 
-    text-[18px] font-bold font-serif 
+    text-[18px] font-bold font-serif no-underline
     rounded-[7px] md:rounded-[14px] shadow-lg  
     text-stone-100
     bg-stone-600 hover:bg-stone-500

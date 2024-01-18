@@ -1,13 +1,13 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const DesktopDropdownItem = ({ item, close }) => {
   return (
-    (<Link
+    <Link
       key={item.name}
       href={item.href}
-      className="group -m-3 p-3 pt-2 was-flex items-start rounded-lg hover:bg-tertiary-200/70 hover:outline-1 hover:outline-primary-500"
-      onClick={close}>
-
+      className="group -m-3 p-3 pt-2 was-flex items-start rounded-lg hover:bg-tertiary-200/70 hover:outline-1 hover:outline-primary-500 no-underline"
+      onClick={close}
+    >
       <div
         className="
           relative flex-shrink-0 flex items-center justify-end 
@@ -26,9 +26,8 @@ const DesktopDropdownItem = ({ item, close }) => {
           {item.description}
         </p>
       </div>
-
-    </Link>)
+    </Link>
   );
-}
+};
 
-export default DesktopDropdownItem
+export default DesktopDropdownItem;
