@@ -216,7 +216,7 @@
   .main-menu-item {
     @apply text-base rounded-md 
     font-bold font-sans
-    relative;
+    relative no-underline;
   }
 }
 
