@@ -25,8 +25,8 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}", // Note the addition of the `app` directory.
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/slices-mfr-old/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "media", // or 'media' or 'class'
   theme: {
     fontFamily: {
       // sans: ["Geomanist", "sans-serif"],
