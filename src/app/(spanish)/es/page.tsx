@@ -4,7 +4,7 @@ import { SliceZone } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
+import { components } from "@/prismic-all-slices";
 
 import Header from "@/components/Header";
 import { getLocales } from "@/lib/getLocales";
