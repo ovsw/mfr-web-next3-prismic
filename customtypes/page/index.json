@@ -27,19 +27,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "big_image": {
+              "type": "SharedSlice"
+            },
             "home_hero": {
-              "type": "SharedSlice"
-            },
-            "content": {
-              "type": "SharedSlice"
-            },
-            "feature": {
-              "type": "SharedSlice"
-            },
-            "hero_heading": {
-              "type": "SharedSlice"
-            },
-            "rich_text": {
               "type": "SharedSlice"
             }
           }

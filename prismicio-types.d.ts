@@ -18,12 +18,7 @@ interface IconDocumentData {}
 export type IconDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<IconDocumentData>, "icon", Lang>;
 
-type PageDocumentDataSlicesSlice =
-  | HomeHeroSlice
-  | ContentSlice
-  | FeatureSlice
-  | HeroHeadingSlice
-  | RichTextSlice;
+type PageDocumentDataSlicesSlice = BigImageSlice | HomeHeroSlice;
 
 /**
  * Content for Page documents
@@ -698,6 +693,259 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *BigImage → Primary*
+ */
+export interface BigImageSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Heading field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Text field in *BigImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Image field in *BigImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for BigImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BigImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *BigImage → Primary*
+ */
+export interface BigImageSliceReversedLayoutPrimary {
+  /**
+   * Eyebrow field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Heading field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Text field in *BigImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Image field in *BigImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Reversed Layout variation for BigImage Slice
+ *
+ * - **API ID**: `reversedLayout`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigImageSliceReversedLayout = prismic.SharedSliceVariation<
+  "reversedLayout",
+  Simplify<BigImageSliceReversedLayoutPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *BigImage → Primary*
+ */
+export interface BigImageSliceBgShadedPrimary {
+  /**
+   * Eyebrow field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Heading field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Text field in *BigImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Image field in *BigImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Shaded Background variation for BigImage Slice
+ *
+ * - **API ID**: `bgShaded`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigImageSliceBgShaded = prismic.SharedSliceVariation<
+  "bgShaded",
+  Simplify<BigImageSliceBgShadedPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *BigImage → Primary*
+ */
+export interface BigImageSliceShadedReversedPrimary {
+  /**
+   * Eyebrow field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Heading field in *BigImage → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Text field in *BigImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+
+  /**
+   * Image field in *BigImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Shaded Reversed variation for BigImage Slice
+ *
+ * - **API ID**: `shadedReversed`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigImageSliceShadedReversed = prismic.SharedSliceVariation<
+  "shadedReversed",
+  Simplify<BigImageSliceShadedReversedPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BigImage*
+ */
+type BigImageSliceVariation =
+  | BigImageSliceDefault
+  | BigImageSliceReversedLayout
+  | BigImageSliceBgShaded
+  | BigImageSliceShadedReversed;
+
+/**
+ * BigImage Shared Slice
+ *
+ * - **API ID**: `big_image`
+ * - **Description**: BigImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BigImageSlice = prismic.SharedSlice<
+  "big_image",
+  BigImageSliceVariation
+>;
+
+/**
  * Primary content in *HomeHero → Primary*
  */
 export interface HomeHeroSliceDefaultPrimary {
@@ -849,6 +1097,16 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      BigImageSlice,
+      BigImageSliceDefaultPrimary,
+      BigImageSliceReversedLayoutPrimary,
+      BigImageSliceBgShadedPrimary,
+      BigImageSliceShadedReversedPrimary,
+      BigImageSliceVariation,
+      BigImageSliceDefault,
+      BigImageSliceReversedLayout,
+      BigImageSliceBgShaded,
+      BigImageSliceShadedReversed,
       HomeHeroSlice,
       HomeHeroSliceDefaultPrimary,
       HomeHeroSliceDefaultItem,
