@@ -4,7 +4,22 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+interface IconDocumentData {}
+
+/**
+ * icon document from Prismic
+ *
+ * - **API ID**: `icon`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type IconDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<IconDocumentData>, "icon", Lang>;
+
 type PageDocumentDataSlicesSlice =
+  | HomeHeroSlice
   | ContentSlice
   | FeatureSlice
   | HeroHeadingSlice
@@ -134,7 +149,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageDocument | SettingsDocument;
+export type AllDocumentTypes = IconDocument | PageDocument | SettingsDocument;
 
 /**
  * Primary content in *Content → Primary*
@@ -682,6 +697,120 @@ export type RichTextSlice = prismic.SharedSlice<
   RichTextSliceVariation
 >;
 
+/**
+ * Primary content in *HomeHero → Primary*
+ */
+export interface HomeHeroSliceDefaultPrimary {
+  /**
+   * Heading field in *HomeHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Paragraph field in *HomeHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+
+  /**
+   * Main Image field in *HomeHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *HomeHero → Items*
+ */
+export interface HomeHeroSliceDefaultItem {
+  /**
+   * Button Text field in *HomeHero → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero.items[].button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Type field in *HomeHero → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: primary
+   * - **API ID Path**: home_hero.items[].button_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_type: prismic.SelectField<
+    "primary" | "accent" | "light-primary" | "light-accent" | "dark",
+    "filled"
+  >;
+
+  /**
+   * Button Link field in *HomeHero → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Icon field in *HomeHero → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_hero.items[].button_icon
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_icon: prismic.ContentRelationshipField<"icon">;
+}
+
+/**
+ * Default variation for HomeHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomeHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HomeHeroSliceDefaultPrimary>,
+  Simplify<HomeHeroSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *HomeHero*
+ */
+type HomeHeroSliceVariation = HomeHeroSliceDefault;
+
+/**
+ * HomeHero Shared Slice
+ *
+ * - **API ID**: `home_hero`
+ * - **Description**: HomeHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomeHeroSlice = prismic.SharedSlice<
+  "home_hero",
+  HomeHeroSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -692,6 +821,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      IconDocument,
+      IconDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -718,6 +849,11 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      HomeHeroSlice,
+      HomeHeroSliceDefaultPrimary,
+      HomeHeroSliceDefaultItem,
+      HomeHeroSliceVariation,
+      HomeHeroSliceDefault,
     };
   }
 }

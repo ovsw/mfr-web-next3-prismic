@@ -1,6 +1,6 @@
 {
-  "libraries": ["./src/slices"],
+  "libraries": ["./src/slices", "./src/slices-mfr-old"],
   "adapter": "@slicemachine/adapter-next",
-  "repositoryName": "next-wf-prismic-multilang-hc",
+  "repositoryName": "mafr",
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
 }
