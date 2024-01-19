@@ -68,7 +68,7 @@ const HeroTemplate = ({
           <div className="max-w-7xl mx-auto ">
             <div className="relative sm:overflow-hidden">
               <div
-                className={`relative  text-white ${heightStyles[height]} flex items-center h-screen`}
+                className={`relative xl:min-h-[760px] text-white ${heightStyles[height]} flex items-center h-screen`}
               >
                 <div className="pl-12 4xl:pl-0 pt-12 2xl:pt-0 relative z-30">
                   {children}
