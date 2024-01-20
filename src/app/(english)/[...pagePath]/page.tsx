@@ -10,7 +10,7 @@ import { components } from "@/prismic-all-slices";
 import Header from "@/components/mfr-old/Header";
 import { getLocales } from "@/lib/getLocales";
 
-type Params = { uid: string };
+type Params = { pagePath: string[] };
 
 export const dynamicParams = false;
 
@@ -24,8 +24,9 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const client = createClient();
+  const uid = params.pagePath[params.pagePath.length - 1];
   const page = await client
-    .getByUID("page", params.uid, { lang: "en-us" })
+    .getByUID("page", uid, { lang: "en-us" })
     .catch(() => notFound());
   const settings = await client.getSingle("settings", { lang: "en-us" });
 
@@ -45,8 +46,14 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Params }) {
   const client = createClient();
+  /*
+   * `params.uid` contains an array of each part of the URL separated by a `/`.
+   * In this example, the last part is the document's UID.
+   */
+  const uid = params.pagePath[params.pagePath.length - 1];
+
   const page = await client
-    .getByUID("page", params.uid, { lang: "en-us" })
+    .getByUID("page", uid, { lang: "en-us" })
     .catch(() => notFound());
 
   const locales = await getLocales(page, client);
@@ -74,6 +81,6 @@ export async function generateStaticParams() {
    * Define a path for every Document.
    */
   return pages.map((page) => {
-    return { uid: page.uid };
+    return { pagePath: page.url?.split("/").filter(Boolean) };
   });
 }
