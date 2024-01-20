@@ -30,7 +30,7 @@ export async function generateMetadata({
   const settings = await client.getSingle("settings", { lang: "en-us" });
 
   return {
-    title: prismic.asText(page.data.title) || settings.data.site_title,
+    title: page.data.meta_title || settings.data.site_title,
     description: page.data.meta_description || settings.data.meta_description,
     openGraph: {
       title: page.data.meta_title || settings.data.site_title || undefined,
