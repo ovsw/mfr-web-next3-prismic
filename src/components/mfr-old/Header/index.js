@@ -31,12 +31,13 @@ import DesktopDropdown from "./nav/deskop-dropdown";
 import MobileNav from "./nav/mobile";
 
 import DesktopLogo from "../../../../public/images/mariannas-fundraisers_2022_alt_wordmark.png";
+import LangSwitcher from "@/components/LangSwitcher";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Header = () => {
+const Header = ({ locales }) => {
   return (
     <header className="shadow-md fixed w-full z-50">
       <Popover className="relative bg-white ">
@@ -126,6 +127,7 @@ const Header = () => {
                 >
                   Submit Order
                 </Link>
+                <LangSwitcher locales={locales} />
               </div>
 
               {/* MOBILE TRIGGER */}

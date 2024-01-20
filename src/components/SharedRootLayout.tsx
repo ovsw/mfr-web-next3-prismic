@@ -6,7 +6,6 @@ import "@/app/tailwind.css";
 import "@/devlink/global.css";
 import { DevLinkProvider } from "@/devlink";
 
-import Header from "@/components/mfr-old/Header";
 import Footer from "@/components/mfr-old/Footer";
 
 export default async function SharedRootLayout({
@@ -19,9 +18,10 @@ export default async function SharedRootLayout({
   return (
     <html lang={lang}>
       <body>
-        <Header />
-        <DevLinkProvider>{children}</DevLinkProvider>
-        <Footer />
+        <DevLinkProvider>
+          {children}
+          <Footer />
+        </DevLinkProvider>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>

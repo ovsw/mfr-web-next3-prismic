@@ -6,7 +6,7 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/prismic-all-slices";
 
-import Header from "@/components/Header";
+import Header from "@/components/mfr-old/Header";
 import { getLocales } from "@/lib/getLocales";
 import { Hero1 } from "@/devlink";
 /**
@@ -47,8 +47,6 @@ export default async function Index() {
   return (
     <>
       <Header locales={locales} />
-      {/* <pre> {JSON.stringify(locales, null, 3)}</pre> */}
-      <Hero1 />
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );

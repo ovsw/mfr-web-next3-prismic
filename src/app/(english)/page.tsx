@@ -6,7 +6,8 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { components } from "@/prismic-all-slices";
 
-import Header from "@/components/Header";
+import Header from "@/components/mfr-old/Header";
+import LangSwitcher from "@/components/LangSwitcher";
 import { getLocales } from "@/lib/getLocales";
 
 /**
