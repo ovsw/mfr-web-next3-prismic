@@ -4,6 +4,20 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+interface FolderDocumentData {}
+
+/**
+ * Folder document from Prismic
+ *
+ * - **API ID**: `folder`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FolderDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FolderDocumentData>, "folder", Lang>;
+
 interface IconDocumentData {}
 
 /**
@@ -25,15 +39,15 @@ type PageDocumentDataSlicesSlice = BigImageSlice | HomeHeroSlice;
  */
 interface PageDocumentData {
   /**
-   * Title field in *Page*
+   * Folder field in *Page*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: page.title
+   * - **API ID Path**: page.folder
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  title: prismic.TitleField;
+  folder: prismic.ContentRelationshipField<"folder">;
 
   /**
    * Slice Zone field in *Page*
@@ -144,7 +158,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = IconDocument | PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | FolderDocument
+  | IconDocument
+  | PageDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *Content → Primary*
@@ -1069,6 +1087,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FolderDocument,
+      FolderDocumentData,
       IconDocument,
       IconDocumentData,
       PageDocument,

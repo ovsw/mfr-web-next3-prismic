@@ -13,13 +13,12 @@
           "placeholder": ""
         }
       },
-      "title": {
-        "type": "StructuredText",
+      "folder": {
+        "type": "Link",
         "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "heading1"
+          "label": "Folder",
+          "select": "document",
+          "customtypes": ["folder"]
         }
       },
       "slices": {
